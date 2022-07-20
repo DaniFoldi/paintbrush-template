@@ -2,18 +2,24 @@
   "name": "paintbrush-template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "paintbrush-ui": "^0.1.2"
-  },
-  "devDependencies": {
-    "nuxt": "^3.0.0-rc.1",
-    "sass": "^1.51.0",
-    "typescript": "^4.6.4"
-  },
+  "main": "app.vue",
   "scripts": {
+    "build": "nuxi build",
+    "clean": "rimraf coverage .nuxt .output",
     "dev": "nuxi dev",
-    "build": "nuxi build"
+    "license": "npm-run-all license:*",
+    "license:prod": "license-checker --summary --production --unknown --onlyAllow \"0BSD;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC;MIT;CC-BY-4.0\"",
+    "license:all": "license-checker --summary --onlyAllow \"0BSD;Apache*;Apache-2.0;BSD-2-Clause;BSD-3-Clause;CC0-1.0;CC-BY-3.0;CC-BY-4.0;CC-BY-ND-4.0;ISC;MIT;Python-2.0\"",
+    "lint": "npm-run-all lint:*",
+    "lint:css": "stylelint --cache --cache-location .stylelintcache --report-descriptionless-disables --report-needless-disables --report-invalid-scope-disables \"**/*.{scss,vue}\" \"*.{scss,vue}\"",
+    "lintw:css": "chokidar \"**/*.{scss,vue}\" -i \"{coverage,node_modules,.nuxt,.output}/**\" -c \"npm run lint:css -- --fix\"",
+    "lint:js": "eslint --ext .cjs,.js,.json,.mjs,.ts,.vue --cache --cache-file .eslintcache --report-unused-disable-directives .",
+    "lintw:js": "chokidar \"**/*.{cjs,js,json,ts,vue}\" -i \"{coverage,node_modules,.nuxt,.output}/**\" -c \"npm run lint:js -- --fix\"",
+    "lintw": "npm-run-all --parallel lintw:*",
+    "prepare": "nuxi prepare",
+    "start": "node .output/server/index.mjs",
+    "test": "vitest --coverage --run",
+    "typecheck": "nuxi typecheck"
   },
   "repository": {
     "type": "git",
@@ -25,5 +31,49 @@
   "bugs": {
     "url": "https://github.com/DaniFoldi/paintbrush-template/issues"
   },
-  "homepage": "https://github.com/DaniFoldi/paintbrush-template#readme"
+  "homepage": "https://github.com/DaniFoldi/paintbrush-template#readme",
+  "overrides": {
+    "git-url-parse": "12.0.0"
+  },
+  "dependencies": {
+    "paintbrush-ui": "^0.2.8"
+  },
+  "devDependencies": {
+    "@danifoldi/eslint-plugin-eslint-presets": "^1.5.3",
+    "@danifoldi/stylelint-presets": "^1.2.0",
+    "@nuxt/content": "^2.0.1",
+    "@nuxt/test-utils": "^3.0.0-rc.6",
+    "@pinia/nuxt": "^0.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "@vueuse/nuxt": "^8.9.4",
+    "c8": "^7.12.0",
+    "chokidar-cli": "^3.0.0",
+    "eslint": "^8.20.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-nuxt": "^3.2.0",
+    "eslint-plugin-unicorn": "^43.0.2",
+    "eslint-plugin-vitest": "0.0.8",
+    "eslint-plugin-vue": "^9.2.0",
+    "license-checker": "^25.0.1",
+    "nuxt": "^3.0.0-rc.6",
+    "nuxt-lodash": "^2.2.0",
+    "playwright": "^1.23.4",
+    "postcss": "^8.4.14",
+    "postcss-html": "^1.5.0",
+    "postcss-scss": "^4.0.4",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-visualizer": "^5.7.1",
+    "sass": "^1.53.0",
+    "stylelint": "^14.9.1",
+    "stylelint-config-recommended": "^8.0.0",
+    "stylelint-config-recommended-scss": "^7.0.0",
+    "stylelint-high-performance-animation": "^1.6.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.3.0",
+    "typescript": "^4.7.4",
+    "vitest": "^0.18.1",
+    "vue": "^3.2.37",
+    "vue-tsc": "^0.38.9"
+  }
 }

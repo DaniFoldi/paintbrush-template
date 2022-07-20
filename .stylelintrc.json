@@ -1,0 +1,3 @@
+{
+  "extends": [ "@danifoldi/stylelint-presets/paintbrush" ]
+}

@@ -1,0 +1,13 @@
+name = 'NAME'
+main = '.output/server/index.mjs'
+account_id = 'ACCOUNT_ID'
+compatibility_date = '2022-07-20'
+
+[env.production]
+routes = [ 'URL' ]
+
+[site]
+bucket = '.output/public'
+
+[build]
+command = 'NITRO_PRESET=cloudflare npm run build'
