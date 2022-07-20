@@ -5,11 +5,11 @@ updates:
   schedule:
     interval: daily
   commit-message:
-    prefix: ':paperclip:'
+    prefix: ":paperclip:"
 
 - package-ecosystem: npm
   directory: /
   schedule:
     interval: daily
   commit-message:
-    prefix: ':paperclip:'
+    prefix: ":paperclip:"
