@@ -2,7 +2,12 @@
   <SidebarContainer>
     <template #sidebar-middle>
       <ContentNavigation v-slot="{ navigation }">
-        <SidebarLink v-for="link of navigation" :key="link._path" :href="link._path" icon="link">
+        <SidebarLink
+          v-for="link of navigation"
+          :key="link._path"
+          :href="link._path"
+          icon="link"
+        >
           {{ link.title }}
         </SidebarLink>
       </ContentNavigation>
