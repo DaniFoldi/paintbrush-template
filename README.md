@@ -2,9 +2,7 @@
 
 ## Installing
 
-```bash
-npm install paintbrush-template
-```
+Click the green button in the top right to use this template for your repository.
 
 ## Usage
 
@@ -29,5 +27,15 @@ We use a subset of gitmoji:
 |:paperclip:             |`:paperclip:`             |for dependencies                           |
 |:octocat:               |`:octocat:`               |for workflows                              |
 |:construction:          |`:construction:`          |for experimental or temporary changes      |
+
+## Template checklist
+
+- [ ] Run `npm update`
+- [ ] Add a license
+- [ ] Customize or remove GitHub Actions workflow
+- [ ] Start developing
+  - [ ] `npm run dev`
+  - [ ] `npm testw`
+  - [ ] `npm run lintw`
 
 _This repository was created from https://github.com/DaniFoldi/paintbrush-template_
